@@ -1,12 +1,9 @@
 {
   "origins": [
-    "https://dev-tunnel.nl",
-    "https://dev-tunnel.online",
     "https://dev-tunnel.github.io",
-    "https://tomatoes-sells-hill-island.trycloudflare.com/",
-    "https://wns67vld-8000.euw.devtunnels.ms",
-    "https://6c80-2001-1c02-2f27-5700-3c93-d4d6-d660-b19f.ngrok-free.app",
-    "http://localhost:8000",
-    "http://localhost"
+    "https://yourcftunnelendpoint.trycloudflare.com/",
+    "https://yourmstunnelendpoint.devtunnels.ms",
+    "https://yourngroktunnelendpoint.ngrok-free.app",
+    "http://localhost:8000"
   ]
 }
