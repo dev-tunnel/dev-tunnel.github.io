@@ -20,6 +20,7 @@ For instance:
 
 Via [ngrok](https://ngrok.com/):
 
+    brew install ngrok
     ngrok http 8000
 
 Via [Microsoft devtunnel](https://learn.microsoft.com/nl-nl/azure/developer/dev-tunnels):
@@ -29,6 +30,7 @@ Via [Microsoft devtunnel](https://learn.microsoft.com/nl-nl/azure/developer/dev-
 
 Via [cloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/):
 
+    brew install cloudflared
     cloudflared tunnel --url http://localhost:8000
 
 # Add origins
