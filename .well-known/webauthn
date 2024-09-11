@@ -1,1 +1,7 @@
-
+{
+  "origins": [
+    "https://dev-tunnel.nl",
+    "https://dev-tunnel.online",
+    "https://dev-tunnel.github.io"
+  ]
+}
