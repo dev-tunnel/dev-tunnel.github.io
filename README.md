@@ -8,7 +8,7 @@ Clone this repository to run it locally or on a remote system.
 
 # Run the server
 
-There are two ways to run a server hosting thisi demo:
+There are two ways to run a server hosting this demo:
 
 ## 1. Run a Python CGI server
 
@@ -110,6 +110,13 @@ Note that http://localhost:8000 is not considered as a related origin even if yo
 # Test
 
 Browse to any of the tunnel endpoints, register a credential, and verify you can use that credential on all the other origins.
+
+Note that you need a recent browser that supports RORs. 
+See [this](https://passkeys.dev/device-support/) page to check if your browser is supported.
+
+On macOS you will need Safari 18, as distributed with macOS Sequoia.
+If you are running macOS Sonoma or Ventura, 
+you can install Safari 18 using a separate download from [here](https://developer.apple.com/download/all/).
 
 # Troubleshooting
 
