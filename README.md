@@ -8,6 +8,8 @@ Clone this repository to run it locally or on a remote system.
 
 # Run the server
 
+There are two ways to run a server hosting thisi demo:
+
 ## 1. Run a Python CGI server
 
     python3 server.py
