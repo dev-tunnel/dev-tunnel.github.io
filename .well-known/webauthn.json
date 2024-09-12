@@ -3,7 +3,6 @@
     "https://dev-tunnel.github.io",
     "https://yourcftunnelendpoint.trycloudflare.com/",
     "https://yourmstunnelendpoint.devtunnels.ms",
-    "https://yourngroktunnelendpoint.ngrok-free.app",
-    "http://localhost:8000"
+    "https://yourngroktunnelendpoint.ngrok-free.app"
   ]
 }

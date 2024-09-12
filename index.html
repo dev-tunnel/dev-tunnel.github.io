@@ -4,7 +4,7 @@
 
 <script>
 
-const rpID = "your-tunnel-endpoint.trycloudflare.com"
+const rpId = "your-tunnel-endpoint.trycloudflare.com"
 
 const ES256 = -7; // ECDSA w/ SHA-256
 const RS256 = -257; // RSA w/ SHA-256
@@ -18,7 +18,7 @@ var challenge = new Uint8Array(32);
 var createCredentialDefaultArgs = {
     publicKey: {
         rp: {
-            id: rpID,
+            id: rpId,
             name: "Example Relying Party"
         },
         user: {
@@ -37,14 +37,14 @@ var createCredentialDefaultArgs = {
 
 var getCredentialDefaultArgs = {
     publicKey: {
-        rpID: rpID,
+        rpId: rpId,
         challenge: challenge.buffer,
         allowCredentials: [],
     },
 };
 
 function create() {
-    document.getElementById("message").innerHTML += `<br/>creating credential for rpID: ${ rpID }`;
+    document.getElementById("message").innerHTML += `<br/>creating credential for rpId: ${ rpId }`;
     self.crypto.getRandomValues(challenge);
     navigator.credentials.create(createCredentialDefaultArgs).then( (cred) => {
         authenticatorData = cred.response.getAuthenticatorData();
@@ -60,7 +60,7 @@ function create() {
 }
 
 function get() {
-    document.getElementById("message").innerHTML += `<br/>creating assertion for rpID: ${ rpID }`;
+    document.getElementById("message").innerHTML += `<br/>creating assertion for rpId: ${ rpId }`;
     self.crypto.getRandomValues(challenge);
     navigator.credentials.get(getCredentialDefaultArgs).then( (assertion) => {
         document.getElementById("message").innerHTML += `<br/>Obtained an assertion for credential ID ${ btoh(new Uint8Array(assertion.rawId)) }`;
