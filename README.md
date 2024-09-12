@@ -124,3 +124,8 @@ Check your origins to see if your current origin is listed.
         Subsequently, an attempt to fetch the .well-known/webauthn resource of the claimed RP ID failed.
 
 Check if the `/.well-known/webauthn` endpoint on your "main" origin is returning a correct JSON file.
+
+    Authentication failed: The relying party ID is not a registrable domain suffix of, nor equal to the current domain. 
+    Subsequently, the .well-known/webauthn resource of the claimed RP ID had the wrong content-type. (It should be application/json.)
+
+Check if your main domain sets the `Content-type` response header correctly.
