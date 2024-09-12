@@ -6,7 +6,9 @@ See [Related Origin Requests](https://passkeys.dev/docs/advanced/related-origins
 
 Clone this repository to run it locally or on a remote system.
 
-# Run the CGI server
+# Run the server
+
+## 1. Run a Python CGI server
 
     python3 server.py
 
@@ -16,6 +18,49 @@ Edit the file to change the port number if needed.
 Note that running a CGI server on your machine can be dangerous.
 It is used here to add a content-type header to the `well-known/webauthn` response.
 Consider running the server in a Docker container or on a cloud server instead.
+
+## 2. Run Apache in a Docker container
+
+A safer option is to run the server in a Docker container.
+The Dockerfile can be used to build a Docker image from an Ubuntu base image.
+To Build the image:
+
+	docker build -t apache_image:1.0 .
+
+Then run the image in a container mapping to port 8000 (or whatever your preference is).
+
+	docker run --name myapache -d -p 8000:80 apache_image:1.0
+
+Verify you can access the related origins file using something like curl:
+
+	curl http://localhost:8000/.well-known/webauthn -i
+
+This should render as:
+
+```
+HTTP/1.1 200 OK
+Date: Thu, 12 Sep 2024 12:18:53 GMT
+Server: Apache/2.4.58 (Ubuntu)
+Last-Modified: Thu, 12 Sep 2024 10:18:23 GMT
+ETag: "122-621e96d39188b"
+Accept-Ranges: bytes
+Content-Length: 290
+Content-Type: application/json
+
+{
+  "origins": [
+    "https://dev-tunnel.github.io",
+    "https://demo.dev-tunnel.nl/",
+    "https://demo.dev-tunnel.online",
+    "https://yourcftunnelendpoint.trycloudflare.com/",
+    "https://yourmstunnelendpoint.devtunnels.ms",
+    "https://yourngroktunnelendpoint.ngrok-free.app"
+  ]
+}
+```
+
+In particular, it is important that the Content-Length response header is set to `application/json`.
+
 
 # Run some tunnels
 
@@ -48,7 +93,7 @@ Edit your index.html file and change the rpID constant to point to your "main" r
 
 Note that you cannot use your github pages site (i.e. `myusername.github.io`) as the 'main" rpID, 
 as there is no way force a content type response header on the .well-known endpoints.
-This is the sole reason the CGI server is used.
+This is the sole reason a server is used.
 
 # Add origins
 

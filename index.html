@@ -4,7 +4,7 @@
 
 <script>
 
-const rpId = "your-tunnel-endpoint.trycloudflare.com"
+const rpId = "demo.dev-tunnel.nl";
 
 const ES256 = -7; // ECDSA w/ SHA-256
 const RS256 = -257; // RSA w/ SHA-256
@@ -30,6 +30,9 @@ var createCredentialDefaultArgs = {
             { type: "public-key", alg: ES256 },
             { type: "public-key", alg: RS256 }
         ],
+        authenticatorSelection: {
+          residentKey: "preferred",
+        },
         excludeCredentials: [],
         challenge: challenge.buffer
     }
@@ -39,7 +42,6 @@ var getCredentialDefaultArgs = {
     publicKey: {
         rpId: rpId,
         challenge: challenge.buffer,
-        allowCredentials: [],
     },
 };
 
@@ -52,7 +54,6 @@ function create() {
         len = new DataView(credLen).getInt16(0, false) // big endian
         credentialId = authenticatorData.slice(55,55+len); // len bytes
         createCredentialDefaultArgs.publicKey.excludeCredentials.push( {id: cred.rawId, type: "public-key"} ); // prevent re-registration
-        getCredentialDefaultArgs.publicKey.allowCredentials.push( {id: cred.rawId, type: "public-key"} ); // use with credentials.get
         document.getElementById("message").innerHTML += `<br/>credential created: ${ btoh(new Uint8Array(cred.rawId)) }`;
     }).catch((e) => {
         document.getElementById("message").innerHTML += `<br/><b>Registration failed</b>: ${ e.message }`;

@@ -1,6 +1,8 @@
 {
   "origins": [
     "https://dev-tunnel.github.io",
+    "https://demo.dev-tunnel.nl/",
+    "https://demo.dev-tunnel.online",
     "https://yourcftunnelendpoint.trycloudflare.com/",
     "https://yourmstunnelendpoint.devtunnels.ms",
     "https://yourngroktunnelendpoint.ngrok-free.app"
