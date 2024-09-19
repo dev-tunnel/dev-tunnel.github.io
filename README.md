@@ -61,7 +61,7 @@ Content-Type: application/json
 }
 ```
 
-In particular, it is important that the Content-Length response header is set to `application/json`.
+In particular, it is important that the `Content-Length` response header is set to `application/json`.
 
 
 # Run some tunnels
